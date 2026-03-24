@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Attendance Portal — Sign In</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+</head>
+<body class="page-login">
+
+  <div class="login-split">
+
+    <!-- LEFT PANEL -->
+    <div class="login-panel-left">
+      <div class="lp-inner">
+        <div class="lp-logo">
+          <div class="logo-mark">A</div>
+          <span>AttendanceIQ</span>
+        </div>
+        <h1 class="lp-heading">Smart Attendance<br/>Management</h1>
+        <p class="lp-desc">ESP8266 RFID-based attendance tracking system. Real-time data from hardware to dashboard.</p>
+        <div class="lp-pills">
+          <span class="pill">RFID Tracking</span>
+          <span class="pill">Google Sheets Sync</span>
+          <span class="pill">Live Analytics</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div class="login-panel-right">
+      <div class="login-form-wrap">
+
+        <div class="form-top">
+          <h2 class="form-title">Teacher Sign In</h2>
+          <p class="form-sub">Enter your credentials to access the dashboard</p>
+        </div>
+
+        <form id="loginForm" novalidate>
+
+          <div class="field">
+            <label for="email">Gmail Address</label>
+            <div class="input-row">
+              <svg class="field-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="4" width="16" height="12" rx="2"/><path d="m2 7 8 5 8-5"/>
+              </svg>
+              <input type="email" id="email" placeholder="yourname@gmail.com" autocomplete="username" required/>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="password">Password</label>
+            <div class="input-row">
+              <svg class="field-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="3" y="9" width="14" height="10" rx="2"/><path d="M7 9V6a3 3 0 0 1 6 0v3"/>
+              </svg>
+              <input type="password" id="password" placeholder="Enter password" autocomplete="current-password" required/>
+              <button type="button" class="eye-btn" id="eyeBtn" title="Toggle visibility">
+                <svg id="eyeIcon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M1 10s3.5-6 9-6 9 6 9 6-3.5 6-9 6-9-6-9-6z"/><circle cx="10" cy="10" r="2.5"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="error-msg" id="errorMsg"></div>
+
+          <button type="submit" class="btn-signin" id="signinBtn">
+            <span id="btnLabel">Sign In</span>
+            <div class="btn-spin" id="btnSpin"></div>
+          </button>
+
+        </form>
+
+        <p class="login-footer-note">© 2025 AttendanceIQ · ESP8266 RFID System</p>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="login.js"></script>
+</body>
+</html>

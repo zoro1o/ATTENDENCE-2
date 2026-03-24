@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Attendance Portal — Dashboard</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+</head>
+<body class="page-dashboard">
+
+  <!-- NAV -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="tb-brand">
+        <div class="logo-mark small">A</div>
+        <span class="tb-title">AttendanceIQ</span>
+      </div>
+      <div class="tb-right">
+        <span class="tb-email" id="tbEmail"></span>
+        <div class="tb-divider"></div>
+        <button class="tb-logout" onclick="logout()">Sign Out</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- PAGE -->
+  <main class="dash-page" id="dashPage" style="display:none">
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+      <div>
+        <h1 class="page-title">Attendance Dashboard</h1>
+        <p class="page-sub" id="pageSubtitle">Loading data…</p>
+      </div>
+      <button class="btn-refresh" onclick="loadData()">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M17 10A7 7 0 0 1 3.5 14.5"/><path d="M3 10a7 7 0 0 1 13.5-3.5"/>
+          <path d="M3 6v4h4"/><path d="M17 14v-4h-4"/>
+        </svg>
+        Refresh
+      </button>
+    </div>
+
+    <!-- STAT CARDS -->
+    <section class="stat-row">
+      <div class="stat-card">
+        <p class="sc-label">Total Classes</p>
+        <p class="sc-value" id="scClasses">—</p>
+        <p class="sc-note">sessions recorded</p>
+      </div>
+      <div class="stat-card">
+        <p class="sc-label">Total Students</p>
+        <p class="sc-value" id="scStudents">—</p>
+        <p class="sc-note">unique registrations</p>
+      </div>
+      <div class="stat-card sc-highlight">
+        <p class="sc-label">Avg Attendance</p>
+        <p class="sc-value" id="scAvg">—</p>
+        <p class="sc-note">across all sessions</p>
+      </div>
+      <div class="stat-card">
+        <p class="sc-label">Last Session</p>
+        <p class="sc-value sc-date" id="scLast">—</p>
+        <p class="sc-note">most recent date</p>
+      </div>
+    </section>
+
+    <!-- CHARTS -->
+    <section class="charts-section">
+      <div class="chart-card chart-wide">
+        <div class="cc-header">
+          <h3>Students Present Per Session</h3>
+          <span class="cc-tag" id="sessionTag">—</span>
+        </div>
+        <div class="chart-area">
+          <canvas id="barChart"></canvas>
+        </div>
+      </div>
+      <div class="chart-card chart-narrow">
+        <div class="cc-header">
+          <h3>Attendance Rate</h3>
+        </div>
+        <div class="donut-area">
+          <canvas id="donutChart"></canvas>
+          <div class="donut-label">
+            <span id="donutVal">—</span>
+            <small>average</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STUDENT TABLE -->
+    <section class="table-card">
+      <div class="tc-header">
+        <h3>Student Records</h3>
+        <div class="tc-controls">
+          <input type="search" id="searchBox" class="tc-search" placeholder="Search name or roll…" oninput="filterTable()"/>
+          <select id="sessionFilter" class="tc-select" onchange="filterTable()">
+            <option value="all">All Sessions</option>
+          </select>
+        </div>
+      </div>
+      <div class="tc-body">
+        <table id="mainTable">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Student Name</th>
+              <th>Roll No.</th>
+              <th>Present</th>
+              <th>Total</th>
+              <th>Attendance %</th>
+              <th>Last Seen</th>
+              <th>Session History</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody">
+            <tr><td colspan="8" class="td-empty">Loading…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SESSION LOG -->
+    <section class="sessions-card">
+      <h3>Class Session Log</h3>
+      <p class="sessions-sub">Each block represents one uploaded class session</p>
+      <div class="sessions-list" id="sessionsList"></div>
+    </section>
+
+  </main>
+
+  <!-- LOADING SCREEN -->
+  <div class="loading-screen" id="loadingScreen">
+    <div class="ls-inner">
+      <div class="ls-spinner"></div>
+      <p>Fetching attendance data…</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
