@@ -297,10 +297,10 @@ function getDemoData() {
     { name: "Krittan Saha",   roll: "023" },
     { name: "Nabajyoti Talukdar", roll: "026" },
     { name: "Pratim Jyoti Goswami",     roll: "033" },
-    { name: "Ankita Sharma",   roll: "012" },
-    { name: "Rohit Kumar",     roll: "045" },
-    { name: "Priya Gogoi",     roll: "018" },
-    { name: "Sourav Das",      roll: "052" },
+    { name: "Ankita Sharma",   roll: "034" },
+    { name: "Rohit Kumar",     roll: "038" },
+    { name: "Priya Gogoi",     roll: "041" },
+    { name: "Sourav Das",      roll: "042" },
   ];
   const dates = ["2025-06-02","2025-06-04","2025-06-06","2025-06-09","2025-06-11","2025-06-13"];
   const out = [];
