@@ -294,9 +294,9 @@ function showInfoBanner(msg) {
 /* ── DEMO DATA ───────────────────────────────────────────── */
 function getDemoData() {
   const students = [
-    { name: "Pratim Jyoti Goswami",     roll: "033" },
-    { name: "Nabajyoti Talukdar", roll: "026" },
     { name: "Krittan Saha",   roll: "023" },
+    { name: "Nabajyoti Talukdar", roll: "026" },
+    { name: "Pratim Jyoti Goswami",     roll: "033" },
     { name: "Ankita Sharma",   roll: "012" },
     { name: "Rohit Kumar",     roll: "045" },
     { name: "Priya Gogoi",     roll: "018" },
